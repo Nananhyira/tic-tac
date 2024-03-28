@@ -1,3 +1,14 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body,
+html {
+	font-family: "Poppins", arial;
+	overflow-x: hidden;
+}
 
 :root {
 	--h1: #1e1964;
@@ -78,4 +89,46 @@
 .player span {
   color:var(--Cyellow);
   padding:15px;
+}
+@media only screen and (max-width:700px){
+  h1{
+    font-size:10px;
+    
+  }
+  .title span {
+  color:var(--Cpink);
+ 
+}
+  .board{
+  width:300px;
+  height:264;
+  display:flex;
+  margin: auto;
+
+}
+.boxes{
+  display:flex;
+  width:100px;
+  height: 120px;
+  background-color:var(--Cdarkblue);
+  border:3px solid var(--Cpink);
+  cursor: pointer;
+  border-radius:10px;
+
+}
+.title span {
+  color:var(--Cpink);
+  /* padding-left:10px; */
+}
+.player{
+  display:flex;
+  color:var(--Clightblue);
+  margin-right:auto;
+  padding-right:10px;
+  justify-content: space-around;
+  align-items: center;
+}
+:root{
+  line-height: 0.80;
+}
 }

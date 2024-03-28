@@ -8,21 +8,21 @@ let data = ["", "", "", "", "", "", "", "", ""];
 function TicTocToe() {
 	const [count, setCount] = useState(0);
 	const [lock, setLock] = useState(false);
-  const [scoresx, setScoresx]=useState(0);
-  const [scoreso, setScoreso]=useState(0);
+	const [scoresx, setScoresx] = useState(0);
+	const [scoreso, setScoreso] = useState(0);
 
 	const titleRef = useRef(null);
 	const box1 = useRef(null);
 	const box2 = useRef(null);
 	const box3 = useRef(null);
 	const box4 = useRef(null);
-	const box5= useRef(null);
+	const box5 = useRef(null);
 	const box6 = useRef(null);
 	const box7 = useRef(null);
 	const box8 = useRef(null);
 	const box9 = useRef(null);
 
-let boxArray=[box1,box2,box3,box4,box5,box6,box7,box8,box9];
+	let boxArray = [box1, box2, box3, box4, box5, box6, box7, box8, box9];
 
 	const Toggle = (e, num) => {
 		if (lock) {
@@ -59,31 +59,33 @@ let boxArray=[box1,box2,box3,box4,box5,box6,box7,box8,box9];
 		} else if (data[2] === data[4] && data[4] === data[6] && data[6] !== "") {
 			won(data[6]);
 		}
-  
-
 	};
 	const won = (winner) => {
 		setLock(true);
 		if (winner === "x") {
 			titleRef.current.innerHTML = `Congratulations <img src='${mark}'/>`;
-      setScoresx(scoresx+1)
-		} else {
+			setScoresx(scoresx + 1);
+		} 
+		
+		else if( data[0] !== "" && data[1] !== "" && data[2] !== ""&& data[3] !== ""&& data[4] !== ""&& data[5] !== ""&& data[6] !== ""&& data[7] !== ""&& data[8] !== ""){
+					titleRef.current.innerHTML = `DRAW!!!`;
+			}
+		else {
 			titleRef.current.innerHTML = `Congratulations <img src='${circle}'/>`;
-       setScoreso(scoreso+1)
-       
+			{
+				setScoreso(scoreso + 1);
+			}
 		}
-   
 	};
 	const reset = (e) => {
 		setLock(false);
 		data = ["", "", "", "", "", "", "", "", ""];
 		titleRef.current.innerHTML = `
-				Tic Tac Toe Game In <span> React</span>`
-      boxArray.map((e)=>{
-         e.current.innerHTML = "";
-      })
-     
-	
+				Tic Tac Toe Game In <span> React</span>`;
+		boxArray.map((e) => {
+			e.current.innerHTML = "";
+		});
+
 		// window.location.reload();
 	};
 
@@ -92,11 +94,14 @@ let boxArray=[box1,box2,box3,box4,box5,box6,box7,box8,box9];
 			<h1 className='title' ref={titleRef}>
 				Tic Tac Toe Game In <span> React</span>
 			</h1>
-      <h2>Scores </h2>
+			<h2>Scores </h2>
 			<div className='player'>
-				
-				<h2>Player <span>X</span>: {scoresx}</h2>
-				<h2>Player <span>O</span>  : {scoreso}</h2>
+				<h2>
+					Player <span>X</span>: {scoresx}
+				</h2>
+				<h2>
+					Player <span>O</span> : {scoreso}
+				</h2>
 			</div>
 			<div className='board'>
 				<div className='row1'>
